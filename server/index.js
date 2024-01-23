@@ -33,6 +33,11 @@ serverSocket.on("connect",(clientSocketOnServerSide)=>{    // serverSocket main 
   })
 
 
+  clientSocketOnServerSide.on("message", ({id,message})=>{
+        serverSocket.emit("sendMessage",{id,message})
+  })
+
+
   clientSocketOnServerSide.on("disconnect",()=>{
     console.log("A user disconnected....")
     const userLeftInfo = "A user left the chat room"

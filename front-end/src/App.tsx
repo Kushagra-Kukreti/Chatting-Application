@@ -3,8 +3,13 @@ import SignInPage from "./pages/SignInPage"
 import ChatPage from "./pages/ChatPage"
 
 
-function App() {
+export type messageInfoProp  ={
+  id:string 
+  message:string
+}
 
+function App() {
+  
   return (
     <>
          <Routes>
