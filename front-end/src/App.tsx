@@ -6,6 +6,7 @@ import ChatPage from "./pages/ChatPage"
 export type messageInfoProp  ={
   id:string 
   message:string
+  name:string
 }
 
 function App() {

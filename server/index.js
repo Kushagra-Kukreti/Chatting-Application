@@ -33,8 +33,8 @@ serverSocket.on("connect",(clientSocketOnServerSide)=>{    // serverSocket main 
   })
 
 
-  clientSocketOnServerSide.on("message", ({id,message})=>{
-        serverSocket.emit("sendMessage",{id,message})
+  clientSocketOnServerSide.on("message", ({id,message,name})=>{
+        serverSocket.emit("sendMessage",{id,message,name})
   })
 
 

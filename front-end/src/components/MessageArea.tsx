@@ -1,29 +1,19 @@
 import { messageInfoProp } from "../App"
 import Message from "./Message"
-
-
+import '../css/messageArea.css'
 type messageDataProp ={
     id:string
     messageData:messageInfoProp[]
+    name:string
 }
  
 
-const MessageArea = ({id,messageData}:messageDataProp) => {
+const MessageArea = ({id,messageData,name}:messageDataProp) => {
   return (
-    <div 
-     style={
-      {
-        width:"100%",
-         height:"91vh",
-         display:"flex",
-         flexDirection:"column",
-         gap:"1.5rem",
-         padding:"0.8rem"
+     
+    <div className="messageArea">
 
-
-        }}>
-
-     {messageData.map((message,index)=><Message  isYou={message.id === id?true:false} key={index} message={message}/>)}
+     {messageData.map((message,index)=><Message  isYou={message.id === id?"":message.id} key={index} message={message} name={message.id === id?name:message.name}/>)}
     </div>
   )
 }

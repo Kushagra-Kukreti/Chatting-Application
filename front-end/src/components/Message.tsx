@@ -2,13 +2,14 @@ import { messageInfoProp } from "../App"
 
 
 type MessageProp = {
-  isYou:boolean
+   isYou:string
     message:messageInfoProp
+    name:string
 }
 
-const Message = ({isYou,message}:MessageProp) => {
+const Message = ({isYou,message,name}:MessageProp) => {
 
-  if(isYou)
+  if(isYou === "")
      return (
      
      <div>
@@ -26,9 +27,26 @@ const Message = ({isYou,message}:MessageProp) => {
           
      </div>
   )
-  else
-  return (<div>
-   
+  else if(isYou === "notification"){
+    return (<div style={{display:"flex",alignItems:"center",justifyContent:"center"}}> 
+      
+      <span style={{
+        fontSize:"0.7rem",
+        backgroundColor:"whitesmoke",
+        padding:".5rem",
+          borderRadius:"1rem",
+          maxWidth:"85%"
+        }}>{message.message}
+      </span> 
+  
+         
+    </div>)
+  }
+  else{
+    console.log(isYou)
+  return (<div> 
+    <span style={{display:"flex",alignItems:"baseline"}}>
+      <h6 className="text-muted" style={{fontSize:"0.7rem",marginRight:"0.5rem",fontWeight:"bold"}}> {name}</h6>
     <span style={{
       backgroundColor:"whitesmoke",
       padding:".7rem",
@@ -36,9 +54,10 @@ const Message = ({isYou,message}:MessageProp) => {
         maxWidth:"85%"
       }}>{message.message}
     </span> 
+    </span>
        
   </div>
-)
+)}
 
 }
 
