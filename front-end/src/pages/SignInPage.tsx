@@ -1,6 +1,11 @@
+import { useState } from "react"
+import { NavLink } from "react-router-dom";
+
  
 
 const SignInPage = () => {
+
+  const [name,setName] = useState<string>("");
   return (
     <div className="row overflow-hidden m-0">
         <span
@@ -30,7 +35,8 @@ const SignInPage = () => {
         }}
         >
           <strong><h4>Let's Get Started...</h4></strong>
-          <div style={{width:"70%",padding:"1rem",fontWeight:"bold"}} className="btn btn-primary">Login</div>
+          <input value={name} onChange={(e)=>setName(()=>e.target.value)}  style={{color:"lightgrey", border:"none",outline:"none", width:"70%",padding:"1rem",borderRadius:"0.5rem",fontWeight:"bold"}} className="text-dark" type="text"placeholder="Enter Your Name"/>
+          <NavLink  style={{ width: "70%", padding: "1rem", fontWeight: "bold" }} className={`${"btn btn-primary"} ${name.length>4 ?"":"disabled"}`} to={"/chat"} state={name}  >Login</NavLink>
         </span>
     </div>
   )
