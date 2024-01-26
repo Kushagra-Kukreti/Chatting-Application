@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import SignInPage from "./pages/SignInPage"
-import ChatPage from "./pages/ChatPage"
+import MainChatSection from "./components/MainChatSection"
 
 
 export type messageInfoProp  ={
@@ -10,12 +10,11 @@ export type messageInfoProp  ={
 }
 
 function App() {
-  
   return (
     <>
          <Routes>
            <Route path="/" element={<SignInPage/>}/>
-           <Route path="/chat" element={<ChatPage/>}/>
+           <Route path="/chat" element={<MainChatSection/>}/>
            <Route path="/*" element={<SignInPage/>}/>
          </Routes>
     </>

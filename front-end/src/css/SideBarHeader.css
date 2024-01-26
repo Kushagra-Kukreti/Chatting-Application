@@ -1,0 +1,9 @@
+.header-heading{
+    font-weight: bold;
+    height: 2.25em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    margin: 0;
+}

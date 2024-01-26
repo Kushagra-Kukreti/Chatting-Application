@@ -11,7 +11,7 @@ const Message = ({ isYou, message, name }: MessageProp) => {
   if (isYou === "") {
     return (
       <div>
-        <span className="bg-primary float-end message-span message-container">
+        <span className="bg-primary float-end message-span message-container text-light">
           {message.message}
         </span>
       </div>
