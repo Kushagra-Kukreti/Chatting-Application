@@ -1,45 +1,41 @@
-import { useState } from "react"
-import { NavLink } from "react-router-dom";
 
- 
+import  { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import '../css/SignInPage.css'; 
 
 const SignInPage = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState<string>("");
 
-  const [name,setName] = useState<string>("");
   return (
-    <div className="row overflow-hidden m-0">
-        <span
-         className="col-6"
-         style={{
-            height:"100vh",
-            display:"flex",
-            flexDirection:"column",
-            justifyContent:"center",
-            alignItems:"center",
-        }} 
-         >
-            <img 
-            style={{width:"100%",objectFit:"cover"}}
-            src="../public/messenger.png" alt="" />
-              
-        </span>
-        <span className="col-6"
-           style={{
-            backgroundColor:"whitesmoke",
-            height:"100vh",
-            gap:"1rem",
-            display:"flex",
-            flexDirection:"column",
-            justifyContent:"center",
-            alignItems:"center"
-        }}
+    <div className="sign-in-page-container row m-0 overflow-hidden">
+      <span className="image-container col-6">
+        <img className="image" src="../public/messenger.png" alt="" />
+      </span>
+      <span className="form-container col-6">
+        <strong>
+          <h4 className="form-title">Let's Get Started...</h4>
+        </strong>
+        <input
+          onKeyDown={(e) => (e.key === "Enter" ? navigate("/chat") : "")}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="input-Field text-dark"
+          type="text"
+          placeholder="Enter Your Name"
+        />
+        <NavLink
+          className={`btn btn-primary login-button ${
+            name.length > 4 ? "" : "disabled"
+          }`}
+          to="/chat"
+          state={name}
         >
-          <strong><h4>Let's Get Started...</h4></strong>
-          <input value={name} onChange={(e)=>setName(()=>e.target.value)}  style={{color:"lightgrey", border:"none",outline:"none", width:"70%",padding:"1rem",borderRadius:"0.5rem",fontWeight:"bold"}} className="text-dark" type="text"placeholder="Enter Your Name"/>
-          <NavLink  style={{ width: "70%", padding: "1rem", fontWeight: "bold" }} className={`${"btn btn-primary"} ${name.length>4 ?"":"disabled"}`} to={"/chat"} state={name}  >Login</NavLink>
-        </span>
+          Login
+        </NavLink>
+      </span>
     </div>
-  )
-}
+  );
+};
 
-export default SignInPage
+export default SignInPage;

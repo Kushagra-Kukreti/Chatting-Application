@@ -1,0 +1,52 @@
+
+
+.sign-in-page-container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  
+  .image-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .form-container {
+    background-color: whitesmoke;
+    height: 100vh;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-title {
+    font-weight: bold;
+  }
+  
+  .input-Field {
+    color: lightgrey;
+    border: none;
+    outline: none;
+    width: 70%;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    align-self: center;
+  }
+  
+  .login-button {
+    width: 70%;
+    padding: 1rem;
+    font-weight: bold;
+  }
+  

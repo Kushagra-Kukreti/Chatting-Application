@@ -38,7 +38,7 @@ serverSocket.on("connect",(clientSocketOnServerSide)=>{    // serverSocket main 
   })
 
 
-  clientSocketOnServerSide.on("disconnect",()=>{
+  clientSocketOnServerSide.on("offline",()=>{
     console.log("A user disconnected....")
     const userLeftInfo = "A user left the chat room"
     clientSocketOnServerSide.broadcast.emit("left",{userLeftInfo})

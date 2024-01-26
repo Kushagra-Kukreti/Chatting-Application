@@ -16,6 +16,7 @@ function App() {
          <Routes>
            <Route path="/" element={<SignInPage/>}/>
            <Route path="/chat" element={<ChatPage/>}/>
+           <Route path="/*" element={<SignInPage/>}/>
          </Routes>
     </>
   )
