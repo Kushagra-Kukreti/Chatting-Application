@@ -3,16 +3,17 @@
 import { useEffect, useState } from "react";
 import socketIO from "socket.io-client";
 import MessageArea from "../components/MessageArea";
-import { messageInfoProp } from "../App";
 import ChatHeader from "../components/ChatHeader";
 import { useLocation } from "react-router-dom";
 import SendButton from "../components/SendButton";
 import "../css/ChatPage.css"; // Import the CSS file
+import { useChatContext } from "../context/ChatContext";
 
 const endPoint = "http://localhost:8000/";
 
 const ChatPage = () => {
-  const [messageData, setMessageData] = useState<messageInfoProp[]>([]);
+  
+    const{messageData,setMessageData}=useChatContext()
   const [message, setMessage] = useState<string>("");
   const [id, setId] = useState("");
   const location = useLocation();
@@ -87,6 +88,7 @@ const ChatPage = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

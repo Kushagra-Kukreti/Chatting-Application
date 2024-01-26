@@ -9,38 +9,40 @@
   }
   
   .message-area-container {
-    height: 76vh;
-    margin-top: 5rem;
+    height: 78vh;
     width: 100%;
     overflow: scroll;
   }
-  
   .input-container {
     display: flex;
     justify-content: center;
+    align-content: center;
     gap: 0.1rem;
     margin-top: 0.5vh;
     height: 8vh;
-    position: fixed;
-    z-index: 100;
     background-color: white;
     bottom: 0;
     width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   
   .input-field {
-    width: 95vw;
+    width: 90%;
     background-color: whitesmoke;
     outline: none;
-    border-radius: 2rem;
+    border-radius: 2em;
     border: none;
-    padding: 0.5rem;
+    height:3em;
+    padding: 0.5em;
     color: grey;
-    padding-left: 1.2rem;
+    padding-left: 1.2em;
+    margin: 0;
   }
   
   .send-button {
     background-color: whitesmoke;
-    border-radius: 10rem;
+    border-radius: 10em;
+    height: 3em;
   }
   

@@ -1,0 +1,8 @@
+.main-chat-section{
+    display: flex;
+    margin: 0;
+}
+
+.sidebar-div{
+    z-index: 500;
+}
