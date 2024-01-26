@@ -1,0 +1,23 @@
+
+.message-container {
+    max-width: 85%;
+  }
+  
+  .message-span {
+    padding: 0.7rem;
+    border-radius: 2rem;
+  }
+  
+  .notification-span {
+    font-size: 0.7rem;
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    border-radius: 1rem;
+  }
+  
+  .message-text {
+    background-color: whitesmoke;
+    padding: 0.7rem;
+    border-radius: 2rem;
+  }
+  

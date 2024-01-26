@@ -1,0 +1,46 @@
+/* ChatPage.css */
+
+.chat-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .message-area-container {
+    height: 76vh;
+    margin-top: 5rem;
+    width: 100%;
+    overflow: scroll;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+    margin-top: 0.5vh;
+    height: 8vh;
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .input-field {
+    width: 95vw;
+    background-color: whitesmoke;
+    outline: none;
+    border-radius: 2rem;
+    border: none;
+    padding: 0.5rem;
+    color: grey;
+    padding-left: 1.2rem;
+  }
+  
+  .send-button {
+    background-color: whitesmoke;
+    border-radius: 10rem;
+  }
+  
