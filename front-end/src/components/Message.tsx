@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { messageInfoProp } from "../App";
 import "../css/Message.css"; // Import the CSS file
 
@@ -7,8 +8,21 @@ type MessageProp = {
   name: string;
 };
 
+
+
+
 const Message = ({ isYou, message, name }: MessageProp) => {
-  if (isYou === "") {
+  
+  const lastMessageRef =  useRef<HTMLDivElement>(null)
+  useEffect(()=>{
+    if(lastMessageRef.current){
+      lastMessageRef.current.scrollIntoView();
+    }
+  })
+
+  if (isYou === "" && (message.message!== "" )) {
+
+
     return (
       <div>
         <span className="bg-primary float-end message-span message-container text-light">
@@ -16,7 +30,7 @@ const Message = ({ isYou, message, name }: MessageProp) => {
         </span>
       </div>
     );
-  } else if (isYou === "notification") {
+  } else if (isYou === "notification" && (message.message!== "")) {
     return (
       <div
         style={{
@@ -30,7 +44,7 @@ const Message = ({ isYou, message, name }: MessageProp) => {
         </span>
       </div>
     );
-  } else {
+  } else if( message.message!== "") {
     return (
       <div>
         <span style={{ display: "flex", alignItems: "baseline" }}>

@@ -1,10 +1,9 @@
 // ChatPage.tsx
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import socketIO from "socket.io-client";
 import MessageArea from "../components/MessageArea";
 import ChatHeader from "../components/ChatHeader";
-import { useLocation } from "react-router-dom";
 import SendButton from "../components/SendButton";
 import "../css/ChatPage.css"; // Import the CSS file
 import { useChatContext } from "../context/ChatContext";
@@ -13,29 +12,26 @@ const endPoint = "http://localhost:8000/";
 
 const ChatPage = () => {
   
-    const{messageData,setMessageData}=useChatContext()
-  const [message, setMessage] = useState<string>("");
-  const [id, setId] = useState("");
-  const location = useLocation();
+  const{messageData,setMessageData,id,setId,message,setMessage,name}=useChatContext()
   const clientSocket = socketIO(endPoint, { transports: ["websocket"] });
 
   const send = () => {
-    clientSocket.emit("message", { id, message, name: location.state });
+    clientSocket.emit("message", { id, message, name: name });
     setMessage("");
   };
 
-  useEffect(() => {
-    console.log("The id is:::", id);
-  }, [id]);
 
   useEffect(() => {
+
+     
     clientSocket.on("connect", () => {
-      setMessageData([
-        ...messageData,
+      setMessageData(prevMessageData => [
+        ...prevMessageData,
         { id: "notification", message: "You are connected!", name: "system" },
       ]);
-      setId(clientSocket.id || "");
+      setId(() => clientSocket.id || "");
     });
+  
 
     const dummyData = "Dummy data from client side";
     clientSocket.emit("chatJoin", { dummyData });
@@ -67,6 +63,8 @@ const ChatPage = () => {
       clientSocket.off();
     };
   }, [messageData]);
+
+
 
   return (
     <div className="chat-page-container">
