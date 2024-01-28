@@ -1,13 +1,19 @@
 
-import { messageInfoProp } from "../App";
 import "../css/ContactCard.css"
-const ContactCard = ({name,id,message}:messageInfoProp) => {
-  return (
-    <div className="card contact-card">
-      <div className="card-body">{name} <span>{id}</span> <span>{id}</span></div>
 
-    </div>
-  );
+ type ContactProp={
+  id:string
+ }
+ 
+const ContactCard = ({id}:ContactProp) => {
+
+    return (
+      <div className="card contact-card">
+        <div className="card-body">{id}</div>
+      </div>
+    );
+    
+  
 };
 
 export default ContactCard;

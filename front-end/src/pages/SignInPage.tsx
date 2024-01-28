@@ -1,11 +1,10 @@
-
-import  { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import '../css/SignInPage.css'; 
+import { useChatContext } from "../context/ChatContext";
 
 const SignInPage = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState<string>("");
+ const {name,setName}= useChatContext()
 
   return (
     <div className="sign-in-page-container row m-0 overflow-hidden">
@@ -23,6 +22,7 @@ const SignInPage = () => {
           className="input-Field text-dark "
           type="text"
           placeholder="Enter Your Name"
+          
         />
         <NavLink
           className={`btn btn-primary login-button ${
