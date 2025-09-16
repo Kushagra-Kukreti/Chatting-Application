@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import '../css/SignInPage.css'; 
 import { useChatContext } from "../context/ChatContext";
-
+import {IMG_MESSENGER} from "../images/index.js"
 const SignInPage = () => {
   const navigate = useNavigate();
  const {name,setName}= useChatContext()
@@ -9,7 +9,7 @@ const SignInPage = () => {
   return (
     <div className="sign-in-page-container row m-0 overflow-hidden">
       <span className="image-container col-lg-6 col-md-6 col-sm-12">
-        <img className="image" src="../public/messenger.png" alt="" />
+        <img className="image" src={IMG_MESSENGER} alt="" />
       </span>
       <span className="form-container col-lg-6 col-md-6 col-sm-12">
         <strong>
